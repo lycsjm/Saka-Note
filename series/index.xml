@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Saka Note</title>
+    <link>https://lycsjm.github.io/Saka-Note/series/</link>
+    <description>Recent content in Series on Saka Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>&amp;copy; Copyright 2018 Lycsjm</copyright>
+    
+	<atom:link href="https://lycsjm.github.io/Saka-Note/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
