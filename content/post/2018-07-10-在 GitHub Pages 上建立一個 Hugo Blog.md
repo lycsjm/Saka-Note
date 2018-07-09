@@ -34,7 +34,7 @@ Linux 中，是由 Community Repo 維護，可直接安裝：
 ### 建立 Hugo 網站
 
 ```sh
-$ hugo new site <project-namd>
+$ hugo new site <project-name>
 $ cd <project-name>
 ```
 
