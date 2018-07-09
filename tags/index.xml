@@ -7,9 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>&amp;copy; Copyright 2018 Lycsjm</copyright>
+    <lastBuildDate>Tue, 10 Jul 2018 02:07:00 +0800</lastBuildDate>
     
 	<atom:link href="https://lycsjm.github.io/Saka-Note/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://lycsjm.github.io/Saka-Note/tags/git/</link>
+      <pubDate>Tue, 10 Jul 2018 02:07:00 +0800</pubDate>
+      
+      <guid>https://lycsjm.github.io/Saka-Note/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://lycsjm.github.io/Saka-Note/tags/hugo/</link>
+      <pubDate>Tue, 10 Jul 2018 02:07:00 +0800</pubDate>
+      
+      <guid>https://lycsjm.github.io/Saka-Note/tags/hugo/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>在 GitHub Pages 上建立一個 Hugo Blog - Saka Note</title>
+  <meta property="og:title" content="在 GitHub Pages 上建立一個 Hugo Blog - Saka Note" />
+  <meta name="twitter:title" content="在 GitHub Pages 上建立一個 Hugo Blog - Saka Note" />
+  <meta name="description" content="Hugo 是一個靜態網站生成器，雖然還有很多亂七八糟的功能，不
+過我主要看上了他能拿來產生部落格的功能。以下將介紹如何使用 Hugo 在 Github Pages
+上搭建專題頁面。
+
+">
+  <meta property="og:description" content="Hugo 是一個靜態網站生成器，雖然還有很多亂七八糟的功能，不
+過我主要看上了他能拿來產生部落格的功能。以下將介紹如何使用 Hugo 在 Github Pages
+上搭建專題頁面。
+
+">
+  <meta name="twitter:description" content="Hugo 是一個靜態網站生成器，雖然還有很多亂七八糟的功能，不
+過我主要看上了他能拿來產生部落格的功能。以下將介紹如何使用 Hugo 在 Github Pages
+上搭建專題頁面。
+
+">
+  <meta name="author" content="Lycsjm"/>
+  <meta property="og:site_name" content="Saka Note" />
+  <meta property="og:url" content="https://lycsjm.github.io/Saka-Note/post/2018-07-10-%E5%9C%A8-github-pages-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B-hugo-blog/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.42.2" />
+  <link rel="stylesheet" href="/Saka-Note/css/style.css" media="all" />
+  <link rel="stylesheet" href="/Saka-Note/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/Saka-Note/css/custom.css" media="all" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/Saka-Note/">Saka Note</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/Saka-Note/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/Saka-Note/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/Saka-Note/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/Saka-Note/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">在 GitHub Pages 上建立一個 Hugo Blog</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>2018-07-10</time></li>
+        <li class="article-meta-categories">
+          <a href="/Saka-Note/categories/blog/">
+            <i class="fas fa-folder"></i>
+            blog
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/Saka-Note/tags/git/">
+            <i class="fas fa-tag"></i>
+            git
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/Saka-Note/tags/hugo/">
+            <i class="fas fa-tag"></i>
+            hugo
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#搭建一個-hugo-網站">搭建一個 Hugo 網站</a>
+<ul>
+<li><a href="#安裝-hugo">安裝 Hugo</a></li>
+<li><a href="#建立-hugo-網站">建立 Hugo 網站</a></li>
+<li><a href="#選擇想要的-theme">選擇想要的 Theme</a></li>
+<li><a href="#調整網站設定">調整網站設定</a></li>
+</ul></li>
+<li><a href="#部署到-github-及-github-pages-上">部署到 Github 及 GitHub Pages 上</a>
+<ul>
+<li><a href="#初始化專案">初始化專案</a></li>
+<li><a href="#初始化-gh-pages">初始化 <code>gh-pages</code></a></li>
+<li><a href="#建立並部署至-github-page-上">建立並部署至 GitHub Page 上</a></li>
+<li><a href="#建立-publish-script">建立 publish script</a></li>
+</ul></li>
+<li><a href="#參考">參考</a></li>
+</ul></li>
+</ul>
+</nav>
+</aside>
+      <p><a href="https://gohugo.io/">Hugo</a> 是一個靜態網站生成器，雖然還有很多亂七八糟的功能，不
+過我主要看上了他能拿來產生部落格的功能。以下將介紹如何使用 Hugo 在 Github Pages
+上搭建專題頁面。</p>
+
+<p></p>
+
+<p>要從頭開始搭建 Hugo blog 在 github 的步驟如下：</p>
+
+<ol>
+<li>搭建一個 Hugo 網站</li>
+<li>部署到 GitHub 及 GitHub Pages 上</li>
+</ol>
+
+<h2 id="搭建一個-hugo-網站">搭建一個 Hugo 網站</h2>
+
+<h3 id="安裝-hugo">安裝 Hugo</h3>
+
+<p>Hugo 提供<a href="https://gohugo.io/getting-started/installing/">多種安裝方式</a>，在 Arch
+Linux 中，是由 Community Repo 維護，可直接安裝：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"># pacman -Sy hugo</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="建立-hugo-網站">建立 Hugo 網站</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ hugo new site &lt;project-namd&gt;
+$ <span class="nb">cd</span> &lt;project-name&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="選擇想要的-theme">選擇想要的 Theme</h3>
+
+<p>Hugo 上有<a href="https://themes.gohugo.io/">不少 theme</a>可供挑選，如果沒有能力自行修
+改，那一個 theme 基本上就代表了你的網站的能力，所以挑選前要注意。</p>
+
+<p>在這邊我花費了很久的時間，主要有幾個原因：</p>
+
+<ol>
+<li>沒有我看得上眼的 dark theme，不是功能不齊就
+是<a href="https://themes.gohugo.io/after-dark/">太醜</a>或<a href="https://themes.gohugo.io/bluestnight/">太花</a>。</li>
+<li>最喜歡的 <a href="https://themes.gohugo.io/hikari/">Hikari</a> 沒有標籤也沒有類別。</li>
+<li>最後就先暫時選定 <a href="https://themes.gohugo.io/whiteplain/">Whiteplain</a>，因為佈
+景看起來夠簡單修改應該會比較容易，不過目前試用時還是有看到一些問題，例如那堆
+分享按鈕……</li>
+</ol>
+
+<p>以我最後選的 <code>taikii/whiteplain</code> 為例，安裝 theme。不過因為未來要把整個靜態資料
+夾一併 push，因此改用 <code>git submodule</code> 而不是一般的 <code>git clone</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ git submodule add https://github.com/taikii/whiteplain.git themes/whiteplain</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="調整網站設定">調整網站設定</h3>
+
+<p>通常都是複製 theme 中的 <code>exampleSite/config.toml</code> 並加以修改，詳細依各 theme 而
+定。以下有提到設定時也會以 toml 做為設定格式。</p>
+
+<p>要注意的是 <code>baseurl</code>，如果像我一樣打算先以 Project Pages 做為 blog，那麼應該要
+設定成： <code>baseurl = &quot;https://&lt;username&gt;.github.io/&lt;project-name&gt;&quot;</code>
+如此一來一個基本的網站就算建完了，可以用 <code>$ hugo serve</code> 先行預覽。預設的網址為
+：<code>https://localhost:1313/&lt;project-name&gt;</code></p>
+
+<h2 id="部署到-github-及-github-pages-上">部署到 Github 及 GitHub Pages 上</h2>
+
+<h3 id="初始化專案">初始化專案</h3>
+
+<p>針對一般專案的初始化就不用多提，比較特別的是我們打算將 Hugo 產生出來的檔案直接
+推送至 <code>gh-pages</code> 分支，因此要讓 <code>master</code> 分支忽略 <code>public/</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ git init
+
+<span class="c1"># Ignore `public`
+</span><span class="c1"></span>$ <span class="nb">echo</span> <span class="s2">&#34;public&#34;</span> &gt;&gt; .gitignore
+
+$ git add .
+$ git commit -m <span class="sb">`</span>Initial commit.<span class="sb">`</span>
+
+<span class="c1"># add remote site
+</span><span class="c1"></span>$ git remote add origin https://github.com/&lt;user-name&gt;/&lt;project-name&gt;.git</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="初始化-gh-pages">初始化 <code>gh-pages</code></h3>
+
+<p>GitHub Pages 使用 <code>gh-pages</code> 分支做為網站，因此我們利用 orphan branch<sup class="footnote-ref" id="fnref:ob"><a href="#fn:ob">1</a></sup> 建
+立：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># make a orphan branch and push to origin
+</span><span class="c1"></span>$ git checkout --orphan gh-pages
+$ git reset --hard
+$ git commit --allow-empty -m <span class="s2">&#34;Initializing gh-pages branch&#34;</span>
+$ git push origin gh-pages
+$ git checkout master</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="建立並部署至-github-page-上">建立並部署至 GitHub Page 上</h3>
+
+<p>利用 github 可以建立多重<a href="https://git-scm.com/docs/git-worktree">工作樹</a>的功能，
+將 <code>public/</code> 做為 <code>gh-pages</code> 的工作樹：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ rm -rf public
+$ git worktree add -B gh-pages public origin/gh-pages</code></pre></td></tr></table>
+</div>
+</div>
+<p>接著只要重新建立網站並 <code>commit</code> 至 <code>origin/gh-pages</code> 就算佈署完成了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ hugo
+$ <span class="nb">cd</span> public <span class="o">&amp;&amp;</span> git add --all <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;Publishing to gh-pages&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ..
+
+<span class="c1"># commit to GitHub Pages
+</span><span class="c1"></span>$ git push origin gh-pages</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="建立-publish-script">建立 publish script</h3>
+
+<p>由於 Hugo 每次產生檔案時不會自動刪除 <code>public/</code>，必須手動砍除再把 <code>public/</code> 加入
+工作樹，工作繁瑣。建議直接建立個可執行的 script <code>public.sh</code> 置於
+<code>&lt;project-name&gt;</code> 根目錄：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="c1"># Those 2 line assume you are in content/*/
+</span><span class="c1">#DIR=$(dirname &#34;$0&#34;)
+</span><span class="c1">#cd $DIR/..
+</span><span class="c1"></span>
+<span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The working directory is dirty. Please commit any pending changes.&#34;</span>
+    <span class="nb">exit</span> <span class="m">1</span><span class="p">;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;Deleting old publication&#34;</span>
+rm -rf public
+mkdir public
+git worktree prune
+rm -rf .git/worktrees/public/
+
+<span class="nb">echo</span> <span class="s2">&#34;Checking out gh-pages branch into public&#34;</span>
+git worktree add -B gh-pages public origin/gh-pages
+
+<span class="nb">echo</span> <span class="s2">&#34;Removing existing files&#34;</span>
+rm -rf public/*
+
+<span class="nb">echo</span> <span class="s2">&#34;Generating site&#34;</span>
+hugo
+
+<span class="nb">echo</span> <span class="s2">&#34;Updating gh-pages branch&#34;</span>
+<span class="nb">cd</span> public <span class="o">&amp;&amp;</span> git add --all <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;Publishing to gh-pages (publish.sh)&#34;</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;pushing to publish&#34;</span>
+git push origin gh-pages -f</code></pre></td></tr></table>
+</div>
+</div>
+<p>如此每次寫完文章後，只要執行下兩行指令即可重編網站並佈署：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ git push
+$ sh publish_changes.sh</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="參考">參考</h2>
+
+<ul>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#put-it-into-a-script-1">Host on GitHub | Hugo</a></li>
+<li><a href="https://keithpblog.org/post/hugo-website-on-githubpages/">Hugo website hosted on GitHub Pages | keithp&rsquo;s blog</a></li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:ob">和原本 repo 無關的分支。可見<a href="https://git-scm.com/docs/git-checkout/#git-checkout---orphanltnewbranchgt">官方解釋</a>
+ <a class="footnote-return" href="#fnref:ob"><sup>[return]</sup></a></li>
+</ol>
+</div>
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="https://lycsjm.github.io/Saka-Note/post/2018-07-10-%E5%9C%A8-github-pages-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B-hugo-blog/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <g:plus action="share"></g:plus>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older pager-noitem">Older &gt;</li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2018 Lycsjm</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/Saka-Note/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+<script src="/Saka-Note/js/script.js"></script>
+<script src="/Saka-Note/js/custom.js"></script>
+
+
+</body>
+</html>

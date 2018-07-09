@@ -3,12 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lycsjm.github.io/Saka-Note/post/2018-07-10-%E5%9C%A8-github-pages-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B-hugo-blog/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/about/</loc>
+    <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/categories/blog/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://lycsjm.github.io/Saka-Note/categories/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/tags/git/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/tags/hugo/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://lycsjm.github.io/Saka-Note/post/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://lycsjm.github.io/Saka-Note/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -19,6 +59,7 @@
   
   <url>
     <loc>https://lycsjm.github.io/Saka-Note/tags/</loc>
+    <lastmod>2018-07-10T02:07:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
